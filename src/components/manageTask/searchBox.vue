@@ -58,8 +58,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .searchBoxForm{
-  border: 1px solid black;
+  margin: 10px 0;
 }
 </style>

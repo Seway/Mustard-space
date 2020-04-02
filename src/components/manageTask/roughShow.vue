@@ -3,18 +3,24 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <div class="row" style="border: 1px solid black;">
-                        <div class="col-md-4">简述</div>
-                        <div class="col-md-2">起始时间</div>
-                        <div class="col-md-2">地点</div>
-                        <div class="col-md-2">发布人</div>
-                        <div class="col-md-1">状态</div>
-                        <div class="col-md-1">操作</div>
-                    </div>
+                    <td>
+                        <div class="row" >
+                            <div class="col-md-4">简述</div>
+                            <div class="col-md-2">起始时间</div>
+                            <div class="col-md-2">地点</div>
+                            <div class="col-md-1">发布人</div>
+                            <div class="col-md-1">状态</div>
+                            <div class="col-md-1">操作</div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </td>
                 </tr>
             </thead>
             <tbody >
                 <everyOne></everyOne>
+                                <everyOne></everyOne>
+                <everyOne></everyOne>
+
             </tbody>
         </table>
 
@@ -32,9 +38,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .roughShow{
-  background: white;
-  border: 1px solid black;
+  background: whitesmoke;
 }
 </style>

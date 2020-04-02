@@ -1,7 +1,9 @@
 <template>
   <div class="manageTask container">
     <h1>任务管理页面</h1>
+    <hr/>
     <searchBox></searchBox>
+    <hr/>
     <roughShow ></roughShow>
   </div>
 </template>
@@ -19,9 +21,13 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .manageTask{
-  background: white;
+  background: whitesmoke;
   border: 1px solid black;
 }
+hr{
+  margin: 10px 0;
+}
+
 </style>
