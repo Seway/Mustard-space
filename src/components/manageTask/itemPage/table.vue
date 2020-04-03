@@ -16,24 +16,33 @@
                     </td>
                 </tr>
             </thead>
-            <tbody >
-                <everyOne></everyOne>
-                                <everyOne></everyOne>
-                <everyOne></everyOne>
-
+            <tbody>
+                <tableItem></tableItem>
+                <tableItem></tableItem>
+                <tableItem></tableItem>
             </tbody>
         </table>
+
+        <ul class="pagination">
+            <li><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&raquo;</a></li>
+        </ul>
 
     </div>
 </template>
 
 <script>
-import everyOne from './everyOne.vue'
+import tableItem from './tableItem.vue'
 
 export default {
   name: 'roughShow',
   components: {
-    everyOne
+    tableItem
   }
 }
 </script>

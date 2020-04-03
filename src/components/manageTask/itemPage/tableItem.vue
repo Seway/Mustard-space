@@ -30,7 +30,7 @@
               {{status}}
             </div>
             <div class="col-md-1">
-              <button type="button" class="btn btn-link">查看</button>
+              <button type="button" class="btn btn-link" @click="toDetail">查看</button>
             </div>
             <div class="col-md-1"></div>
         </div>
@@ -56,8 +56,14 @@ export default {
   },
   props: {
     code: String
+  },
+  methods: {
+    toDetail: function () {
+      this.$router.push({ path: '/manageTask/detail' })
+    }
   }
 }
+
 </script>
 
 <style scoped>
