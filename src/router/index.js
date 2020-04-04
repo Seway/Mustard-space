@@ -17,6 +17,11 @@ const routes = [
     name: 'manageTask',
     component: () => import('../views/manageTask.vue'),
     children: sonTask
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: () => import('../views/tt.vue')
   }
 ]
 

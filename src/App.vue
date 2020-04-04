@@ -1,30 +1,41 @@
 <template>
-  <div id="app">
-    <Nav></Nav>
-    <div id="slide" class="col-xs-2">
-      <ul id="slideNav" class="nav">
-        <li><router-link to="/overview">概览</router-link></li>
-        <hr/>
-        <li><router-link to="/manageTask">任务管理</router-link></li>
-      </ul>
-    </div>
-    <div class="col-xs-1"></div>
-    <router-view class="col-xs-8" />
-  </div>
+  <el-container id="app">
+    <el-header>
+      <Nav></Nav>
+    </el-header>
+    <el-container>
+      <el-aside style="height:100%;overflow:hidden;">
+        <slideNav></slideNav>
+      </el-aside>
+      <el-main>
+        <crumb></crumb>
+        <router-view />
+      </el-main>
+    </el-container>
+  </el-container>
 </template>
 
 <script>
 import Nav from '@/components/Nav.vue'
+import crumb from '@/components/crumb.vue'
 
 export default {
   name: 'main',
   components: {
-    Nav
+    Nav,
+    crumb,
+    slideNav: () => import('./components/slideNav.vue')
   }
 }
 </script>
 
 <style>
+body{
+  margin: 0;
+}
+.el-header{
+  padding: 0 !important;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

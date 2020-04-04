@@ -1,65 +1,53 @@
 <template>
-  <form class="searchBoxForm " role="form">
-    <div class="row">
-      <div class="col-xs-2">
-        <div class="input-group">
-          <input type="text" class="form-control" />
-          <div class="input-group-btn">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-              状态
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu pull-right">
-              <li>
-                <a href="#">功能</a>
-              </li>
-              <li>
-                <a href="#">另一个功能</a>
-              </li>
-              <li>
-                <a href="#">其他</a>
-              </li>
-            </ul>
-          </div>
-          <!-- /btn-group -->
-        </div>
-      </div>
-
-      <div class="col-xs-2">
-        <div class="input-group">
-          <input type="text" class="form-control" />
-          <div class="input-group-btn">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-              筛选条件
-              <span class="caret"></span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-xs-2">
-        <div class="input-group">
-          <input type="text" class="form-control" />
-        </div>
-      </div>
-
-      <div class="col-xs-2">
-        <div class="input-group">
-          <button type="button" class="btn btn-default">搜索</button>
-        </div>
-      </div>
-    </div>
-  </form>
+  <el-row :gutter="20">
+    <el-col :span="6">
+      <el-select v-model="value" placeholder="请选择">
+        <el-option
+          v-for="item in options"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+        ></el-option>
+      </el-select>
+    </el-col>
+  </el-row>
 </template>
 
 <script>
 export default {
-  name: 'serachBox'
+  name: 'serachBox',
+  data () {
+    return {
+      options: [
+        {
+          value: '选项1',
+          label: '黄金糕'
+        },
+        {
+          value: '选项2',
+          label: '双皮奶'
+        },
+        {
+          value: '选项3',
+          label: '蚵仔煎'
+        },
+        {
+          value: '选项4',
+          label: '龙须面'
+        },
+        {
+          value: '选项5',
+          label: '北京烤鸭'
+        }
+      ],
+      value: ''
+    }
+  }
 }
 </script>
 
 <style scoped>
-.searchBoxForm{
+.searchBoxForm {
   margin: 10px 0;
 }
 </style>
