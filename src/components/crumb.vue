@@ -1,28 +1,46 @@
 <template>
- <el-row>
-    姓名：{{info.name}}
-    <el-input v-model="info.name" placeholder="请输入姓名"></el-input>
-    年龄：{{info.age}}
-    <el-input v-model="info.age" placeholder="请输入年龄"></el-input>
-    性别：{{info.sex}}
-    <el-select v-model="info.sex" placeholder="请选择">
-      <el-option v-for="item in options" :key="item" :value="item"></el-option><!-- 这里的key官方推荐在v-for时使用，不然会警告，但不影响使用 -->
-    </el-select>
-  </el-row>
+  <el-breadcrumb separator="/" class="bread">
+    <el-breadcrumb-item
+      v-for="(item,index) in breadList"
+      :key="index"
+      :to="{ path: item.path }"
+    >{{item.meta.title}}</el-breadcrumb-item>
+  </el-breadcrumb>
 </template>
+
 <script>
 export default {
-  name: 'NewContact',
+  name: 'crumb',
   data () {
     return {
-      info: {
-        name: '',
-        age: null,
-        sex: ''
-      },
-      options: [
-        '女', '男', '保密'
-      ]
+      breadList: [] // 路由集合
     }
+  },
+  watch: {
+    $route () {
+      this.getBreadcrumb()
+    }
+  },
+  methods: {
+    getBreadcrumb () {
+      const matched = this.$route.matched
+      // 如果转到任务管理界面
+      if (matched.length !== 1) {
+      }
+      this.breadList = matched
+    }
+  },
+  created () {
+    this.getBreadcrumb()
   }
 }
+</script>
+
+<style scoped>
+.bread {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+}
+</style>

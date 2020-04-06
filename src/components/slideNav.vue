@@ -5,8 +5,8 @@
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
-      background-color="#545c64"
-      text-color="#fff"
+      background-color="#fff"
+      text-color="#545c64"
       active-text-color="#ffd04b"
       router
     >
@@ -14,7 +14,7 @@
         <i class="el-icon-document"></i>
         <span slot="title">概览</span>
       </el-menu-item>
-      <el-menu-item index="/manageTask">
+      <el-menu-item index="/manageTask/itemPage">
         <i class="el-icon-document"></i>
         <span slot="title">任务管理</span>
       </el-menu-item>

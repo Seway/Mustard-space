@@ -16,14 +16,14 @@
       <el-menu-item index="3" style="float:right;" disabled>消息中心</el-menu-item>
       <el-submenu index="4" style="float:right;">
         <template slot="title">用户</template>
-        <el-menu-item index="2-1">选项1</el-menu-item>
-        <el-menu-item index="2-2">选项2</el-menu-item>
-        <el-menu-item index="2-3">选项3</el-menu-item>
-        <el-submenu index="2-4">
+        <el-menu-item index="4-1">选项1</el-menu-item>
+        <el-menu-item index="4-2">选项2</el-menu-item>
+        <el-menu-item index="4-3">选项3</el-menu-item>
+        <el-submenu index="4-4">
           <template slot="title">选项4</template>
-          <el-menu-item index="2-4-1">选项1</el-menu-item>
-          <el-menu-item index="2-4-2">选项2</el-menu-item>
-          <el-menu-item index="2-4-3">选项3</el-menu-item>
+          <el-menu-item index="4-4-1">选项1</el-menu-item>
+          <el-menu-item index="4-4-2">选项2</el-menu-item>
+          <el-menu-item index="4-4-3">选项3</el-menu-item>
         </el-submenu>
       </el-submenu>
     </el-menu>

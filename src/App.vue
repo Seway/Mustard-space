@@ -7,9 +7,15 @@
       <el-aside style="height:100%;overflow:hidden;">
         <slideNav></slideNav>
       </el-aside>
-      <el-main>
-        <crumb></crumb>
-        <router-view />
+      <el-main style="padding:0;">
+        <el-container>
+          <el-header class="bread">
+            <crumb></crumb>
+          </el-header>
+          <el-main>
+            <router-view />
+          </el-main>
+        </el-container>
       </el-main>
     </el-container>
   </el-container>
@@ -30,11 +36,15 @@ export default {
 </script>
 
 <style>
-body{
+body {
   margin: 0;
 }
-.el-header{
+.el-header {
   padding: 0 !important;
+}
+.bread{
+  border: 1px solid black;
+  margin: 0;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -58,20 +68,19 @@ body{
   color: #42b983;
 }
 
-#slideNav{
+#slideNav {
   margin: 0;
   background-color: white;
 }
 
-hr{
+hr {
   -moz-border-bottom-colors: none;
   -moz-border-left-colors: none;
   -moz-border-right-colors: none;
   -moz-border-top-colors: none;
-  border-color: #EEEEEE -moz-use-text-color #FFFFFF;
+  border-color: #eeeeee -moz-use-text-color #ffffff;
   border-style: solid none;
   border-width: 1px 0;
   margin: 0px 0;
 }
-
 </style>
