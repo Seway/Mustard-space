@@ -28,7 +28,7 @@
       <el-table-column prop="status" label="状态" sortable></el-table-column>
       <el-table-column fixed="right" label="操作" width="100">
         <template slot-scope="scope">
-          <el-button @click="goDetail(scope)" type="text" size="small">查看</el-button>
+          <el-button @click="goDetail(scope.row['id'])" type="text" size="small">查看</el-button>
           <el-button type="text" size="small">编辑</el-button>
         </template>
       </el-table-column>
@@ -54,12 +54,22 @@ export default {
       ]
     }
   },
+  computed: {
+    option () {
+      return this.$store.state.option
+    }
+  },
   methods: {
     formatter (row, column) {
       return row.address
     },
-    goDetail () {
+    goDetail (id) {
       this.$router.push('/manageTask/detail')
+    }
+  },
+  watch: {
+    option (newData, oldData) {
+      // 设置表格搜索条件 进行接口访问获取数据
     }
   },
   components: {

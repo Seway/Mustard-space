@@ -3,8 +3,6 @@
     <el-menu
       :default-active="this.$route.path"
       class="el-menu-vertical-demo"
-      @open="handleOpen"
-      @close="handleClose"
       background-color="#fff"
       text-color="#545c64"
       active-text-color="#ffd04b"
