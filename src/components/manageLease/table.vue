@@ -1,39 +1,43 @@
 <template>
-  <div>
-    <search></search>
-    <el-table
-      :data="tableData"
-      style="width: 100%"
-      :default-sort="{prop: 'date', order: 'descending'}"
-    >
-      <el-table-column prop="id" label="简述" sortable>
-        <template slot-scope="scope">
-          <el-row :gutter="20">
-            <el-col :span="10">
-              <img :src="scope.row['url']" width="100%" />
-            </el-col>
-            <el-col :span="10">
-              <div>{{scope.row['name']}}</div>
-              <div>
-                <label>编号</label>
-                <div>{{scope.row['id']}}</div>
-              </div>
-            </el-col>
-          </el-row>
-        </template>
-      </el-table-column>
-      <el-table-column prop="date" label="起始时间" sortable></el-table-column>
-      <el-table-column prop="address" label="地址" :formatter="formatter"></el-table-column>
-      <el-table-column prop="user" label="发布人" sortable></el-table-column>
-      <el-table-column prop="status" label="状态" sortable></el-table-column>
-      <el-table-column fixed="right" label="操作" width="100">
-        <template slot-scope="scope">
-          <el-button @click="goDetail(scope.row['id'])" type="text" size="small">查看</el-button>
-          <el-button type="text" size="small">编辑</el-button>
-        </template>
-      </el-table-column>
-    </el-table>
-  </div>
+  <el-container>
+    <el-header>
+      <search></search>
+    </el-header>
+    <el-main>
+      <el-table
+        :data="tableData"
+        style="width: 100%"
+        :default-sort="{prop: 'date', order: 'descending'}"
+      >
+        <el-table-column prop="id" label="简述" sortable width="500">
+          <template slot-scope="scope">
+            <el-row :gutter="20">
+              <el-col :span="10">
+                <img :src="scope.row['url']" width="100%" />
+              </el-col>
+              <el-col :span="10">
+                <div>{{scope.row['name']}}</div>
+                <div>
+                  <label>编号</label>
+                  <div>{{scope.row['id']}}</div>
+                </div>
+              </el-col>
+            </el-row>
+          </template>
+        </el-table-column>
+        <el-table-column prop="date" label="起始时间" sortable></el-table-column>
+        <el-table-column prop="address" label="地址" :formatter="formatter"></el-table-column>
+        <el-table-column prop="user" label="发布人" sortable></el-table-column>
+        <el-table-column prop="status" label="状态" sortable></el-table-column>
+        <el-table-column fixed="right" label="操作" width="100">
+          <template slot-scope="scope">
+            <el-button @click="goDetail(scope.row['id'])" type="text" size="small">查看</el-button>
+            <el-button type="text" size="small">编辑</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+    </el-main>
+  </el-container>
 </template>
 
 <script>
@@ -85,3 +89,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.el-table {
+  margin-top: 20px;
+}
+</style>

@@ -28,7 +28,7 @@
         <i class="el-icon-document"></i>
         <span slot="title">用户列表</span>
       </el-menu-item>
-      <el-menu-item index="/test">
+      <el-menu-item index="/manageAdmin/itemPage">
         <i class="el-icon-star-on"></i>
         <span slot="title">管理员</span>
       </el-menu-item>
