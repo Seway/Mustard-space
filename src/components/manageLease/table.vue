@@ -6,7 +6,7 @@
       style="width: 100%"
       :default-sort="{prop: 'date', order: 'descending'}"
     >
-      <el-table-column prop="id" label="简述" sortable  width="500">
+      <el-table-column prop="id" label="简述" sortable>
         <template slot-scope="scope">
           <el-row :gutter="20">
             <el-col :span="10">
@@ -85,9 +85,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.el-table{
-  margin-top: 20px;
-}
-</style>
