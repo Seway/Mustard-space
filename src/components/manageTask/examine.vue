@@ -62,6 +62,9 @@
               <label style="border-left:3px solid gainsboro;padding-left:3px;">地图</label>
             </div>
           </el-col>
+          <el-col :span="22">
+            <Map></Map>
+          </el-col>
         </el-col>
       </el-col>
     </el-main>
@@ -119,6 +122,9 @@ export default {
   created: function () {
     console.log(this.$route.query.id)
     // 根据id访问接口获取数据
+  },
+  components: {
+    Map: () => import('../map.vue')
   }
 }
 </script>
