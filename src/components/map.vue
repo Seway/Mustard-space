@@ -1,8 +1,12 @@
 <template>
-  <div id="app">
-    <h3 class="title">{{ msg }}</h3>
+  <div :id="'center'">
     <div class="amap-wrapper">
-      <el-amap class="amap-box" :vid="'amap-vue'"></el-amap>
+      <el-amap class="amap-box" vid="amap-vue" :center="center">
+        <el-amap-marker
+          :position="center"
+           vid="index"
+        ></el-amap-marker>
+      </el-amap>
     </div>
   </div>
 </template>
@@ -11,7 +15,7 @@
 export default {
   data () {
     return {
-      msg: 'vue-amap向你问好！'
+      center: [121.59996, 31.197646]
     }
   }
 }
@@ -19,7 +23,9 @@ export default {
 
 <style>
 .amap-wrapper {
-  width: 500px;
-  height: 500px;
+  width: 95%;
+  height: 400px;
+  padding: 20px;
+  margin-bottom:10px;
 }
 </style>

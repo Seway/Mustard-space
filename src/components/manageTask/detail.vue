@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-header style="height:200px;border-bottom:1px solid gainsboro; ">
+    <el-header style="height:200px;" class="shadow">
       <el-row style="height:100%;">
         <el-col :span="5" class="picture">
           <div>
@@ -31,42 +31,38 @@
         </el-col>
       </el-row>
     </el-header>
-    <el-main style="padding:10px;">
+    <el-main class="longInfo shadow">
       <el-row>
-        <el-col :span="2">
+        <el-col :span="12" class="box">
           <div>
-            <label style="border-left:3px solid gainsboro;padding-left:3px;">任务详情</label>
+            <label class="leftTitle">任务详情</label>
+          </div>
+          <div class="textDecoration" style="margin-top:80px;">
+            <label>标题：</label>
+          </div>
+          <div class="textDecoration">
+            <label>起止时间:</label>
+          </div>
+          <div class="textDecoration">
+            <label>任务描述：</label>
+          </div>
+          <div class="textDecoration">
+            <label>标签：</label>
+          </div>
+          <div class="textDecoration">
+            <label>酬劳：</label>
+          </div>
+          <div class="textDecoration">
+            <label>联系方式：</label>
           </div>
         </el-col>
-        <el-col :span="10" class="textDecoration">
-          <div>
-            <label>标题</label>
+        <el-col :span="12" class="box">
+          <div style="margin-top:30px;">
+            <label class="leftTitle">地图</label>
           </div>
-          <div>
-            <label>起止时间</label>
+          <div style="width:90%;margin:5%;" class="shadow">
+            <Map></Map>
           </div>
-          <div>
-            <label>任务描述</label>
-          </div>
-
-          <div>
-            <label>标签</label>
-          </div>
-
-          <div>
-            <label>酬劳</label>
-          </div>
-
-          <div>
-            <label>联系方式</label>
-          </div>
-        </el-col>
-        <el-col :span="10">
-          <el-col :span="2">
-            <div>
-              <label style="border-left:3px solid gainsboro;padding-left:3px;">地图</label>
-            </div>
-          </el-col>
         </el-col>
       </el-row>
     </el-main>
@@ -102,24 +98,29 @@ export default {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
-      }).then(() => {
-        // 访问接口删除
-        this.$message({
-          type: 'success',
-          message: '删除成功!'
-        })
-      }).catch(() => {
-        this.$message({
-          type: 'info',
-          message: '已取消删除'
-        })
       })
+        .then(() => {
+          // 访问接口删除
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          })
+        })
+        .catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          })
+        })
     }
   },
   // 初始化函数
   created: function () {
     console.log(this.$route.query.id)
     // 根据id访问接口获取数据
+  },
+  components: {
+    Map: () => import('../map.vue')
   }
 }
 </script>
@@ -134,26 +135,44 @@ export default {
 .task {
   display: flex;
   flex-direction: column;
+  height: 100%;
+}
+.task > div {
+  height: 30%;
+  margin: 1% 0;
 }
 .taskId {
   display: flex;
   align-items: center;
 }
-.textDecoration {
+.box {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 50px;
+  position: relative;
 }
-.textDecoration > div {
-  margin: 10px 0;
+.shadow {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+  background: white;
 }
 .btns {
   display: flex;
   justify-content: flex-end;
 }
-.el-container {
-  background: white;
-  border: 1px solid gainsboro;
+.textDecoration {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+  margin-top: 30px;
+  margin-left: 40px;
+  padding: 10px;
+}
+.leftTitle {
+  border-left: 3px solid gainsboro;
+  position: absolute;
+  top: 0px;
+  padding: 10px;
+}
+.longInfo {
+  border-bottom: 0;
+  padding: 0;
 }
 </style>
