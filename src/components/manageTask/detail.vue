@@ -1,10 +1,10 @@
 <template>
   <el-container>
-    <el-header style="border:1px solid black;height:200px;">
+    <el-header style="height:200px;border-bottom:1px solid gainsboro; ">
       <el-row style="height:100%;">
         <el-col :span="5" class="picture">
           <div>
-            <img :src="url" width="80%" />
+            <el-image style="width: 70%; " :src="url" fit="fill"></el-image>
           </div>
         </el-col>
         <el-col :span="10" class="task">
@@ -12,7 +12,7 @@
             <div>
               <p>{{name}}</p>
             </div>
-            <div>
+            <div style="margin-left:10px;">
               <el-tag>{{status}}</el-tag>
             </div>
           </div>
@@ -26,16 +26,16 @@
         <el-col :span="9" class="btns">
           <el-button-group>
             <el-button type="primary" icon="el-icon-edit" @click="examine()">审核</el-button>
-            <el-button type="primary" icon="el-icon-delete">删除</el-button>
+            <el-button type="primary" icon="el-icon-delete" @click="deleted()">删除</el-button>
           </el-button-group>
         </el-col>
       </el-row>
     </el-header>
-    <el-main style="border:1px solid black;padding:0;">
+    <el-main style="padding:10px;">
       <el-row>
         <el-col :span="2">
           <div>
-            <el-divider direction="vertical"></el-divider>任务详情
+            <label style="border-left:3px solid gainsboro;padding-left:3px;">任务详情</label>
           </div>
         </el-col>
         <el-col :span="10" class="textDecoration">
@@ -64,7 +64,7 @@
         <el-col :span="10">
           <el-col :span="2">
             <div>
-              <el-divider direction="vertical"></el-divider>地图
+              <label style="border-left:3px solid gainsboro;padding-left:3px;">地图</label>
             </div>
           </el-col>
         </el-col>
@@ -87,12 +87,32 @@ export default {
     }
   },
   methods: {
+    // 审核
     examine () {
       this.$router.push({
         path: '/manageTask/examine',
         query: {
           id: this.id
         }
+      })
+    },
+    // 删除
+    deleted () {
+      this.$confirm('此操作将永久删除该任务, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        // 访问接口删除
+        this.$message({
+          type: 'success',
+          message: '删除成功!'
+        })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消删除'
+        })
       })
     }
   },
@@ -131,5 +151,9 @@ export default {
 .btns {
   display: flex;
   justify-content: flex-end;
+}
+.el-container {
+  background: white;
+  border: 1px solid gainsboro;
 }
 </style>

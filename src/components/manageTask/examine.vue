@@ -2,25 +2,25 @@
   <el-container>
     <el-header class="shortInfo" height="100px">
       <el-row>
-        <el-col :span="6">
+        <el-col :span="3">
           <p>任务单号：{{id}}</p>
         </el-col>
-        <el-col :span="6">
+        <el-col :span="3">
           <p>状态：{{status}}</p>
         </el-col>
       </el-row>
       <div>
         <el-row>
-          <el-col :span="6">
+          <el-col :span="3">
             <p>{{user}} 创建{{name}}</p>
           </el-col>
-          <el-col :span="6">
+          <el-col :span="3">
             <p>{{date}}</p>
           </el-col>
-          <el-col :span="12" class="btns">
+          <el-col :span="18" class="btns">
             <el-button-group>
-              <el-button type="primary" icon="el-icon-edit" >通过</el-button>
-              <el-button type="primary" icon="el-icon-delete">拒绝</el-button>
+              <el-button type="primary" icon="el-icon-edit" @click="pass">通过</el-button>
+              <el-button type="primary" icon="el-icon-delete" @click="refuse">拒绝</el-button>
             </el-button-group>
           </el-col>
         </el-row>
@@ -30,7 +30,7 @@
       <el-col>
         <el-col :span="2">
           <div>
-            <el-divider direction="vertical"></el-divider>任务详情
+            <label style="border-left:3px solid gainsboro;padding-left:3px;">任务详情</label>
           </div>
         </el-col>
         <el-col :span="10" class="textDecoration">
@@ -59,7 +59,7 @@
         <el-col :span="10">
           <el-col :span="2">
             <div>
-              <el-divider direction="vertical"></el-divider>地图
+              <label style="border-left:3px solid gainsboro;padding-left:3px;">地图</label>
             </div>
           </el-col>
         </el-col>
@@ -69,11 +69,7 @@
       <el-row>
         <el-col :span="2">备注:</el-col>
         <el-col :span="10">
-          <el-input
-            type="textarea"
-            :autosize="{ minRows: 2, maxRows: 4}"
-            placeholder="请输入内容"
-          ></el-input>
+          <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4}" placeholder="请输入内容"></el-input>
         </el-col>
       </el-row>
     </el-footer>
@@ -92,6 +88,33 @@ export default {
       date: '2017/05/04'
     }
   },
+  methods: {
+    pass () {
+      this.$message({
+        message: '审核成功',
+        type: 'success'
+      })
+    },
+    refuse () {
+      this.$prompt('拒绝的理由', '', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        inputErrorMessage: '不能为空'
+      })
+        .then(({ value }) => {
+          this.$message({
+            type: 'success',
+            message: '提交成功: ' + value
+          })
+        })
+        .catch(() => {
+          this.$message({
+            type: 'info',
+            message: '取消输入'
+          })
+        })
+    }
+  },
   // 初始化函数
   created: function () {
     console.log(this.$route.query.id)
@@ -101,25 +124,35 @@ export default {
 </script>
 
 <style scoped>
+.el-main,
+.el-footer {
+  background: white;
+  border: 1px solid gainsboro;
+}
 .textDecoration {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 50px;
+  margin: 50px 0;
 }
 .textDecoration > div {
   margin: 10px 0;
 }
 .shortInfo {
-  border: 1px solid black;
+  background: lightblue;
+  color: white;
   margin-bottom: 10px;
 }
 .longInfo {
-  border: 1px solid black;
+  border-bottom: 0;
   padding: 0;
 }
 .btns {
   display: flex;
   justify-content: flex-end;
+}
+p {
+  text-align: left;
+  padding-left: 10px;
 }
 </style>
