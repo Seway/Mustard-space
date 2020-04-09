@@ -8,5 +8,10 @@ export default [
     path: 'detail',
     meta: { title: '详细信息' },
     component: () => import('../components/manageAdmin/detail.vue')
+  },
+  {
+    path: 'increase',
+    meta: { title: '新增管理员' },
+    component: () => import('../components/manageAdmin/increase.vue')
   }
 ]

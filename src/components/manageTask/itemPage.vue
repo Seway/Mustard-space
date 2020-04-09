@@ -9,7 +9,7 @@
         style="width: 100%"
         :default-sort="{prop: 'date', order: 'descending'}"
       >
-        <el-table-column prop="id" label="简述"  width="500">
+        <el-table-column prop="id" label="简述" width="500">
           <template slot-scope="scope">
             <el-row :gutter="20">
               <el-col :span="10">
@@ -39,13 +39,14 @@
     </el-main>
     <el-footer>
       <el-pagination
-       background
-      layout="prev, pager, next"
-      :total='totalPage'
-      :current-page='currentPage'
-      :page-size='10'
-      @prev-click='prev'
-      @next-click='next'></el-pagination>
+        background
+        layout="prev, pager, next"
+        :total="totalPage"
+        :current-page="currentPage"
+        :page-size="10"
+        @prev-click="prev"
+        @next-click="next"
+      ></el-pagination>
     </el-footer>
   </el-container>
 </template>
@@ -93,20 +94,16 @@ export default {
     // 点击跳转到详细页面（带id参数）
     goDetail (id) {
       this.$router.push({
-        path: '/manageTask/detail',
+        path: 'detail',
         query: {
           id: id
         }
       })
     },
     // 翻到上一页
-    prev () {
-
-    },
+    prev () {},
     // 翻到下一页
-    next () {
-
-    }
+    next () {}
   },
   watch: {
     // 监听条件数据的变化
@@ -116,6 +113,9 @@ export default {
   },
   components: {
     search: () => import('./search.vue')
+  },
+  created: function () {
+    console.log(this.$route.path)
   }
 }
 </script>

@@ -43,7 +43,7 @@
         <el-input type="textarea" v-model="form.desc"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">修改</el-button>
+        <el-button type="primary" @click="onSubmit">创建</el-button>
         <el-button>取消</el-button>
       </el-form-item>
     </el-form>
@@ -52,7 +52,7 @@
 
 <script>
 export default {
-  name: 'adminDetail',
+  name: 'increasAdmin',
   data: function () {
     return {
       form: {

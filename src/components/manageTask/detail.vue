@@ -86,7 +86,7 @@ export default {
     // 审核
     examine () {
       this.$router.push({
-        path: '/manageTask/examine',
+        path: 'examine',
         query: {
           id: this.id
         }
@@ -116,7 +116,7 @@ export default {
   },
   // 初始化函数
   created: function () {
-    console.log(this.$route.query.id)
+    // console.log(this.$route.query.id)
     // 根据id访问接口获取数据
   },
   components: {

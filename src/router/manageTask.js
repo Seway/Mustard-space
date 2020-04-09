@@ -1,8 +1,8 @@
 export default [
   {
     path: 'itemPage',
-    meta: { title: '总览' },
-    component: () => import('../components/manageTask/table.vue')
+    meta: { title: '' },
+    component: () => import('../components/manageTask/itemPage.vue')
   },
   {
     path: 'detail',
