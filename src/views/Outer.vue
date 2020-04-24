@@ -13,7 +13,7 @@
             <crumb></crumb>
           </el-header>
           <el-main>
-            <router-view />
+              <router-view />
           </el-main>
         </el-container>
       </el-main>
@@ -32,9 +32,7 @@ export default {
     crumb,
     slideNav: () => import('../components/slideNav.vue')
   },
-  created: function () {
-    console.log(this.$route.path)
-  }
+  created: function () {}
 }
 </script>
 

@@ -6,6 +6,9 @@ import overview from '../views/overview.vue'
 import sonTask from './manageTask.js'
 import sonLease from './manageLease.js'
 import sonAdmin from './manageAdmin.js'
+import sonComment from './manageComment.js'
+import sonUser from './manageUser.js'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -52,6 +55,22 @@ const routes = [
         meta: { title: '管理员' },
         component: () => import('../views/Middle.vue'),
         children: sonAdmin
+      },
+      {
+        path: 'manageComment',
+        name: 'manageComment',
+        redirect: '/outer/manageComment/itemPage',
+        meta: { title: '评论管理' },
+        component: () => import('../views/Middle.vue'),
+        children: sonComment
+      },
+      {
+        path: 'manageUser',
+        name: 'manageUser',
+        redirect: '/outer/manageUser/itemPage',
+        meta: { title: '用户管理' },
+        component: () => import('../views/Middle.vue'),
+        children: sonUser
       }
     ]
   }

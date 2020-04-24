@@ -24,9 +24,13 @@
         <i class="el-icon-document"></i>
         <span slot="title">失物管理</span>
       </el-menu-item>
-      <el-menu-item index="/outer/index/PayList">
+       <el-menu-item index="/outer/manageUser/itemPage">
         <i class="el-icon-document"></i>
         <span slot="title">用户列表</span>
+      </el-menu-item>
+      <el-menu-item index="/outer/manageComment/itemPage">
+        <i class="el-icon-document"></i>
+        <span slot="title">评论管理</span>
       </el-menu-item>
       <el-menu-item index="/outer/manageAdmin/itemPage">
         <i class="el-icon-star-on"></i>

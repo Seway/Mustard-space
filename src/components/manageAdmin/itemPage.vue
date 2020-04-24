@@ -3,7 +3,7 @@
     <el-header>
       <search></search>
     </el-header>
-    <el-main>
+    <el-main class="shadow">
       <el-table
         :data="tableData"
         style="width: 100%"
@@ -18,7 +18,7 @@
         <el-table-column fixed="right" label="操作" width="100">
           <template slot-scope="scope">
             <el-button @click="goDetail(scope.row['id'])" type="text" size="small">查看</el-button>
-            <el-button type="text" size="small">编辑</el-button>
+            <el-button @click="goChange(scope.row['id'])" type="text" size="small" >编辑</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -61,6 +61,14 @@ export default {
           id: id
         }
       })
+    },
+    goChange (id) {
+      this.$router.push({
+        path: '/outer/manageAdmin/change',
+        query: {
+          id: id
+        }
+      })
     }
   },
   watch: {
@@ -78,5 +86,9 @@ export default {
 <style scoped>
 .el-table {
   margin-top: 20px;
+}
+.shadow {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  background: white;
 }
 </style>
