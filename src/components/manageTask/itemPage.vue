@@ -5,7 +5,7 @@
     </el-header>
     <el-main class="shadow">
       <el-table
-        :data="tableData"
+        :data="tableData.slice((currentPage-1)*pageSize,currentPage*pageSize)"
         style="width: 100%"
         :default-sort="{prop: 'date', order: 'descending'}"
       >
@@ -44,11 +44,10 @@
       <el-pagination
         background
         layout="prev, pager, next"
-        :total="totalPage"
+        :total="dataLength"
         :current-page="currentPage"
-        :page-size="10"
-        @prev-click="prev"
-        @next-click="next"
+        :page-size="pageSize"
+        @current-change="pageChange"
       ></el-pagination>
     </el-footer>
   </el-container>
@@ -58,11 +57,11 @@
 export default {
   data () {
     return {
+      pageSize: 3, // 每个页面显示多少个项目
       currentPage: 1, // 当前页数
-      totalPage: 10, // 总页数
       tableData: [
         {
-          name: '名字',
+          name: '名字a',
           url:
             'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586064043299&di=936d37ebfc418579e3debf6d674edc82&imgtype=0&src=http%3A%2F%2Fa0.att.hudong.com%2F64%2F76%2F20300001349415131407760417677.jpg',
           id: '222333',
@@ -80,6 +79,26 @@ export default {
           address: '上海市普陀区金沙江路 1518 弄',
           user: '程小虎',
           status: '完成'
+        },
+        {
+          name: '名',
+          url:
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586064043299&di=936d37ebfc418579e3debf6d674edc82&imgtype=0&src=http%3A%2F%2Fa0.att.hudong.com%2F64%2F76%2F20300001349415131407760417677.jpg',
+          id: '222333',
+          date: '2016-05-02',
+          address: '上海市普陀区金沙江路 1518 弄',
+          user: '王小虎',
+          status: '未完成'
+        },
+        {
+          name: '字',
+          url:
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586064043299&di=936d37ebfc418579e3debf6d674edc82&imgtype=0&src=http%3A%2F%2Fa0.att.hudong.com%2F64%2F76%2F20300001349415131407760417677.jpg',
+          id: '222333',
+          date: '2016-05-04',
+          address: '上海市普陀区金沙江路 1518 弄',
+          user: '程小虎',
+          status: '完成'
         }
       ]
     }
@@ -88,6 +107,10 @@ export default {
     // 表格搜索条件
     option () {
       return this.$store.state.option
+    },
+    // 返回数组长度
+    dataLength () {
+      return this.tableData.length
     }
   },
   methods: {
@@ -103,10 +126,10 @@ export default {
         }
       })
     },
-    // 翻到上一页
-    prev () {},
-    // 翻到下一页
-    next () {}
+    // 翻页
+    pageChange (currentPage) {
+      this.currentPage = currentPage
+    }
   },
   watch: {
     // 监听条件数据的变化
@@ -117,8 +140,7 @@ export default {
   components: {
     search: () => import('./search.vue')
   },
-  created: function () {
-  }
+  created: function () {}
 }
 </script>
 

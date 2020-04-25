@@ -1,9 +1,9 @@
 <template>
-  <el-row :gutter="0">
+  <el-row :gutter="20">
     <el-col :span="3">
       <el-input v-model="infos.id" placeholder="输入用户编号" class="width"></el-input>
     </el-col>
-    <el-col :span="1">
+    <el-col :span="3">
       <el-popover placement="bottom" width >
         <div style="text-align: right; margin: 0">
           <div class="inline">
@@ -40,7 +40,7 @@
         <el-button slot="reference">详细条件</el-button>
       </el-popover>
     </el-col>
-    <el-col :span="6">
+    <el-col :span="3">
       <el-button type="primary" icon="el-icon-search" @click="sendInfo()">搜索</el-button>
     </el-col>
   </el-row>
