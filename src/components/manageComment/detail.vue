@@ -30,7 +30,7 @@
         </el-col>
       </el-row>
     </el-header>
-    <el-main class="longInfo shadow">
+    <el-main class="longInfo shadow" style="margin-top:20px;">
       <el-row>
         <el-col :span="12" class="box">
           <div>
