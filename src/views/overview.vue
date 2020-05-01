@@ -30,7 +30,7 @@ export default {
       // 绘制图表
       myChart.setOption({
         title: {
-          text: '某站点用户访问来源',
+          text: '项目类型',
           subtext: '纯属虚构',
           left: 'center'
         },
@@ -41,20 +41,18 @@ export default {
         legend: {
           orient: 'vertical',
           left: 'left',
-          data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+          data: ['任务', '租赁', '失物']
         },
         series: [
           {
-            name: '访问来源',
+            name: '项目占比',
             type: 'pie',
             radius: '55%',
             center: ['50%', '60%'],
             data: [
-              { value: 335, name: '直接访问' },
-              { value: 310, name: '邮件营销' },
-              { value: 234, name: '联盟广告' },
-              { value: 135, name: '视频广告' },
-              { value: 1548, name: '搜索引擎' }
+              { value: 335, name: '任务' },
+              { value: 310, name: '租赁' },
+              { value: 234, name: '失物' }
             ],
             emphasis: {
               itemStyle: {
@@ -73,7 +71,7 @@ export default {
       // 绘制图表
       myChart.setOption({
         title: {
-          text: '堆叠区域图'
+          text: '近日项目存量'
         },
         tooltip: {
           trigger: 'axis',
@@ -85,7 +83,7 @@ export default {
           }
         },
         legend: {
-          data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎']
+          data: ['任务', '租赁', '失物']
         },
         toolbox: {
           feature: {
@@ -112,35 +110,27 @@ export default {
         ],
         series: [
           {
-            name: '邮件营销',
+            name: '任务',
             type: 'line',
             stack: '总量',
             areaStyle: {},
             data: [120, 132, 101, 134, 90, 230, 210]
           },
           {
-            name: '联盟广告',
+            name: '租赁',
             type: 'line',
             stack: '总量',
+            label: {
+              normal: {
+                show: true,
+                position: 'top'
+              }
+            },
             areaStyle: {},
-            data: [220, 182, 191, 234, 290, 330, 310]
+            data: [820, 932, 901, 934, 1290, 1330, 1320]
           },
           {
-            name: '视频广告',
-            type: 'line',
-            stack: '总量',
-            areaStyle: {},
-            data: [150, 232, 201, 154, 190, 330, 410]
-          },
-          {
-            name: '直接访问',
-            type: 'line',
-            stack: '总量',
-            areaStyle: {},
-            data: [320, 332, 301, 334, 390, 330, 320]
-          },
-          {
-            name: '搜索引擎',
+            name: '失物',
             type: 'line',
             stack: '总量',
             label: {

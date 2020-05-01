@@ -8,6 +8,12 @@
         <el-col :span="3">
           <p>状态：{{status}}</p>
         </el-col>
+        <el-col :span="4" class="btns">
+          <el-button-group class="btns">
+            <el-button type="primary" icon="el-icon-edit" @click="pass">通过</el-button>
+            <el-button type="primary" icon="el-icon-delete" @click="refuse">拒绝</el-button>
+          </el-button-group>
+        </el-col>
       </el-row>
       <div>
         <el-row>
@@ -17,16 +23,10 @@
           <el-col :span="3">
             <p>{{date}}</p>
           </el-col>
-          <el-col :span="18" class="btns">
-            <el-button-group>
-              <el-button type="primary" icon="el-icon-edit" @click="pass">通过</el-button>
-              <el-button type="primary" icon="el-icon-delete" @click="refuse">拒绝</el-button>
-            </el-button-group>
-          </el-col>
         </el-row>
       </div>
     </el-header>
-    <el-main class=" shadow">
+    <el-main class="shadow">
       <el-row>
         <el-col :span="12" class="marginBottom">
           <div>
@@ -183,8 +183,8 @@ export default {
   margin-bottom: 10px;
 }
 .btns {
-  display: flex;
-  justify-content: flex-end;
+  float: right;
+  height: 100%;
 }
 p {
   text-align: left;
@@ -196,7 +196,7 @@ p {
   padding: 10px;
 }
 .marginBottom > div {
-  margin-top:10px;
+  margin-top: 10px;
   margin-bottom: 20px;
 }
 </style>

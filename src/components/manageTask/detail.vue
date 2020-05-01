@@ -20,11 +20,15 @@
             <p>编号:{{id}}</p>
           </div>
           <div class="taskId">
-            <p>申请人:{{user}}</p>
+            申请人:
+            <el-link type="info" @click="seeUser" :underline="false">
+              {{user}}
+              <i class="el-icon-view el-icon--right"></i>
+            </el-link>
           </div>
         </el-col>
-        <el-col :span="9" class="btns">
-          <el-button-group>
+        <el-col :span="4" class="btns">
+          <el-button-group class="btns">
             <el-button type="primary" icon="el-icon-edit" @click="examine()">审核</el-button>
             <el-button type="primary" icon="el-icon-delete" @click="deleted()">删除</el-button>
           </el-button-group>
@@ -110,7 +114,12 @@
                 <div class="textDecoration">接收人编号</div>
               </el-col>
               <el-col :span="15">
-                <div class="textDecoration">接收人编号</div>
+                <div class="textDecoration">
+                  <el-link type="info" @click="seeAccept" :underline="false">
+                    {{user}}
+                    <i class="el-icon-view el-icon--right"></i>
+                  </el-link>
+                </div>
               </el-col>
             </el-row>
           </div>
@@ -182,9 +191,28 @@ export default {
           })
         })
     },
+    // 查看相关评论
     seeComment () {
       this.$router.push({
         name: 'commentPage',
+        params: {
+          id: this.id
+        }
+      })
+    },
+    // 查看用户信息
+    seeUser () {
+      this.$router.push({
+        name: 'userDetail',
+        params: {
+          id: this.id
+        }
+      })
+    },
+    // 查看接收者信息
+    seeAccept () {
+      this.$router.push({
+        name: 'userDetail',
         params: {
           id: this.id
         }
@@ -228,14 +256,13 @@ export default {
   background: white;
 }
 .btns {
-  display: flex;
-  justify-content: flex-end;
+  float: right;
 }
 .textDecoration {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
   padding: 10px;
 }
-.marginBottom>div {
+.marginBottom > div {
   margin-bottom: 20px;
 }
 </style>

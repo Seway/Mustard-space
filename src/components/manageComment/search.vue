@@ -1,7 +1,7 @@
 <template>
   <el-row :gutter="20">
-    <el-col :span="3">
-      <el-input v-model="infos.id" placeholder="输入任务编号" class="width"></el-input>
+    <el-col :span="4">
+      <el-input v-model="infos.id" placeholder="输入评论编号" class="width"></el-input>
     </el-col>
     <el-col :span="3">
       <el-popover placement="bottom" width >
@@ -103,6 +103,6 @@ export default {
   justify-content: space-around;
 }
 .width {
-  width: 60%;
+  width: 80%;
 }
 </style>
